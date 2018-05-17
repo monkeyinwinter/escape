@@ -13,8 +13,17 @@
 
 Route::get('/', 'HomeController@home')->name('home');
 
-Route::get('/france', 'RegionController@index')->name('region.regionIndex');
-Route::get('/france/{region}', 'RegionController@view')->name('region.regionView');
+Route::get('users','UsersController@getInfos');
+Route::post('users','UsersController@postInfos');
 
+Route::get('contact', 'ContactController@getForm');
+Route::post('contact', 'ContactController@postForm');
+
+Route::get('photo', 'PhotoController@getForm');
+Route::post('photo', 'PhotoController@postForm');
+
+Route::get('/france', 'RegionController@index')->name('choix_site.choix_region');
+Route::get('/france/{region}/{departement}', 'RegionController@new')->name('choix_site.choix_spot');
+Route::get('/france/{region}', 'RegionController@view')->name('choix_site.choix_departement');
 
 Auth::routes();

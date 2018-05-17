@@ -10,5 +10,7 @@ class Departement extends Eloquent {
     public function region() {
       return $this->belongsTo('App\Region', 'id');
     }
-
+    public function spots() {
+      return $this->hasMany('App\Spot', 'departement_id', 'id');
+    }
 }
