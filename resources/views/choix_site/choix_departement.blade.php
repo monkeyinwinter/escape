@@ -1,7 +1,7 @@
+<p><a href="{{URL::route('choix_site.choix_region')}}">retour</a></p>
 
 <h1><a href="{{URL::route('choix_site.choix_region')}}">France</a></h1>
 
-<p><a href="{{URL::route('choix_site.choix_region')}}">retour</a></p>
 
 <h1>{{ $region->region}}</h1>
 
