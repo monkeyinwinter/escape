@@ -14,8 +14,12 @@
 Auth::routes();
 Route::get('/', 'HomeController@home')->name('home');
 
+/*
 Route::get('users','UsersController@getInfos');
 Route::post('users','UsersController@postInfos');
+*/
+
+Route::resource('user', 'UserController');
 
 Route::get('contact', 'ContactController@getForm');
 Route::post('contact', 'ContactController@postForm');
