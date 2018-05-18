@@ -28,7 +28,7 @@ Route::get('photo', 'PhotoController@getForm');
 Route::post('photo', 'PhotoController@postForm');
 
 Route::get('email', 'EmailController@getForm');
-Route::post('email', ['uses' => 'EmailController@postForm', 'as' => 'storeEmail']);
+Route::post('email', 'EmailController@postForm')->name('storeEmail');
 
 
 
