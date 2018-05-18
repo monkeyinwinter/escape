@@ -16,15 +16,14 @@ class RegionController extends Controller {
     }
 
     public function view($region){
-        $region = Region::where('region', $region)->first();
+        $region = Region::where('region', $region)->firstOrFail();
         $departements = Departement::with('region')->get();
         return View::make('choix_site.choix_departement', compact('region','departements'));
     }
 
     public function new($region,$departement){
-        $region = Region::where('region', $region)->first();
-        $departement = Departement::where('departement', $departement)->first();
-        $spots = Spot::with('departement')->get();
+        $region = Region::where('region', $region)->firstOrFail();
+        $departement = Departement::with('spots')->where('departement', $departement)->first();
 
         return View::make('choix_site.choix_spot', compact('region','departement','spots'));
     }

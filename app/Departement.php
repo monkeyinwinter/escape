@@ -1,16 +1,16 @@
 <?php
 namespace App;
 
-use Eloquent;
+use Illuminate\Database\Eloquent\Model;
 
-class Departement extends Eloquent {
+class Departement extends Model {
 
     protected $guarded = array('id','updated_at','created_at');
 
     public function region() {
-      return $this->belongsTo('App\Region', 'id');
+      return $this->belongsTo('App\Region');
     }
     public function spots() {
-      return $this->hasMany('App\Spot', 'departement_id', 'id');
+      return $this->hasMany('App\Spot');
     }
 }

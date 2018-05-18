@@ -1,9 +1,9 @@
 <?php
 namespace App;
 
-use Eloquent;
+use Illuminate\Database\Eloquent\Model;
 
-class France extends Eloquent {
+class France extends Model {
 
     protected $guarded = array('id','updated_at','created_at');
 

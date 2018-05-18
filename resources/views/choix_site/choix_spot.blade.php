@@ -13,3 +13,10 @@
 
 
 @endforeach
+
+
+@forelse ($departement-> spots as $spot)
+  
+@empty
+    <p>Aucun Spots associé</p>
+@endforelse
