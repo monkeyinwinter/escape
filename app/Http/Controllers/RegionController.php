@@ -29,4 +29,11 @@ class RegionController extends Controller {
     }
 
 
+    public function post($region,$departement){
+      $region = Region::where('region', $region)->firstOrFail();
+      $departement = Departement::with('spots')->where('departement', $departement)->first();
+
+      return View::make('choix_site.choix_spot', compact('region','departement','spots'));
+    }
+
 }

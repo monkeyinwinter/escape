@@ -1,10 +1,10 @@
 @extends('template3')
 
 @section('header')
-	@if(Auth::check())
-		<div class="btn-group pull-right">
+    @if(Auth::check())
+        <div class="btn-group pull-right">
 			{!! link_to_route('post.create', 'Créer un article', [], ['class' => 'btn btn-info']) !!}
-			{!! link_to('login', 'Deconnexion', ['class' => 'btn btn-warning']) !!}
+			{!! link_to('logout', 'Deconnexion', ['class' => 'btn btn-warning']) !!}
 		</div>
 	@else
 		{!! link_to('login', 'Se connecter', ['class' => 'btn btn-info pull-right']) !!}
@@ -20,7 +20,13 @@
 		<article class="row bg-primary">
 			<div class="col-md-12">
 				<header>
-					<h1>{{ $post->titre }}</h1>
+					<h1>{{ $post->titre }}
+						<div class="pull-right">
+							@foreach($post->tags as $tag)
+								{!! link_to('post/tag/' . $tag->tag_url, $tag->tag,	['class' => 'btn btn-xs btn-info']) !!}
+							@endforeach
+						</div>
+					</h1>
 				</header>
 				<hr>
 				<section>

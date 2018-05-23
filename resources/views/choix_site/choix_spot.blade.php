@@ -7,6 +7,14 @@
 
 <h1>{{ $departement-> departement}}</h1>
 
+
+{!! Form::open() !!}
+    {!! Form::label('nouveauspot', 'Nouveaux spot') !!}
+    {!! Form::text('nouveauspot') !!}
+    {!! Form::submit('Envoyer !') !!}
+{!! Form::close() !!}
+
+
 @foreach ($departement-> spots as $spot)
 
 <h4>{{ $spot->spot }}</h4>
@@ -16,7 +24,7 @@
 
 
 @forelse ($departement-> spots as $spot)
-  
+
 @empty
     <p>Aucun Spots associé</p>
 @endforelse
